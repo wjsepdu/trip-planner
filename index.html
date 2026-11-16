@@ -351,7 +351,15 @@
         // 동행자 선택 (단일 선택)
         companionBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                companionBtns.
+                companionBtns.forEach(b => {
+                    b.classList.remove('active', 'border-2', 'border-brand-600', 'bg-brand-50', 'font-bold', 'text-brand-700');
+                    b.classList.add('border', 'border-slate-200', 'bg-white', 'font-semibold', 'text-slate-600');
+                });
+                btn.classList.remove('border', 'border-slate-200', 'bg-white', 'font-semibold', 'text-slate-600');
+                btn.classList.add('active', 'border-2', 'border-brand-600', 'bg-brand-50', 'font-bold', 'text-brand-700');
+                state.companion = btn.dataset.val;
+            });
+        });
 
         // 관심사 선택 (다중 선택)
         interestBtns.forEach(btn => {
